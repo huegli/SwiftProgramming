@@ -2,7 +2,7 @@ import Cocoa
 
 var bucketList = ["Climb Mt. Everest"]
 bucketList.append("Read War and Peace")
-bucketList.append("Go on and Artic expedition")
+bucketList.append("Go on an Arctic expedition")
 bucketList.append("Scuba dive in the Great Blue Hole")
 bucketList.append("Find a triple rainbow")
 bucketList.count
@@ -52,5 +52,10 @@ todoList.reverse()
 print(todoList)
 todoList.shuffle()
 print(todoList)
+
+if let arcticIndex = bucketList.firstIndex(of: "Go on an Arctic expedition with friends") {
+    let plusTwoIndex = arcticIndex + 2
+    print(bucketList[plusTwoIndex])
+}
 
 
