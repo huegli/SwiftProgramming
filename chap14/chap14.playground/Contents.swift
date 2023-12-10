@@ -91,6 +91,8 @@ enum ShapeDimensions {
     // rectangle's associated value defines its width and height
     case rectangle(width: Double, height: Double)
 
+    case triangle(a: Double, b: Double, c: Double)
+    
     func area() -> Double {
         switch self {
         case .point:
@@ -99,6 +101,21 @@ enum ShapeDimensions {
             return side * side
         case let .rectangle(width: w, height: h):
             return w * h
+        case let .triangle(a: a, b: b, c: _):
+            return a * b / 2
+        }
+    }
+    
+    func perimeter() -> Double {
+        switch self {
+        case .point:
+            return 0
+        case let .square(side: side):
+            return 4 * side
+        case let .rectangle(width: w, height: h):
+            return 2 * (w + h)
+        case let .triangle(a: a, b: b, c: c):
+            return a + b + c
         }
     }
 }
@@ -109,3 +126,6 @@ var pointShape = ShapeDimensions.point
 print("square's area = \(squareShape.area())")
 print("rectangle's area = \(rectShape.area())")
 print("point's area = \(pointShape.area())")
+print("square's perimeter = \(squareShape.perimeter())")
+print("rectangle's perimeter = \(rectShape.perimeter())")
+print("point's perimeter = \(pointShape.perimeter())")
