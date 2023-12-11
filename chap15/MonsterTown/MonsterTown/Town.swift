@@ -17,5 +17,8 @@ struct Town {
 
     mutating func changePopulation(by amount: Int) {
         population += amount
+        if population < 0 {
+            population = 0
+        }
     }
 }
